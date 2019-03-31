@@ -5,7 +5,7 @@ public abstract class Dice {
 
     abstract int getMax();
 
-    static int randInt(int min, int max){
+    static int randIntWithRange(int min, int max){
         Random generaator = new Random();
         return generaator.nextInt(max-min+1)+1;
     }

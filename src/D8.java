@@ -1,7 +1,7 @@
 public class D8 extends Dice {
     @Override
     public int roll() {
-        return randInt(1, 8);
+        return randIntWithRange(1, 8);
     }
 
     @Override
