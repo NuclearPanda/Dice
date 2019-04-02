@@ -7,7 +7,7 @@ public abstract class Dice {
 
     static int randIntWithRange(int min, int max) {
         Random generaator = new Random();
-        return generaator.nextInt(max - min + 1) + 1;
+        return generaator.nextInt((max - min) + 1) + min;
     }
 
 }
