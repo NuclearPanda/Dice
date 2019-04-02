@@ -9,7 +9,8 @@ public class Main {
         //Animations.animateDice(a);
 
 
-        whoBegins(players);
+//        int alustab = whoBegins(players);
+//        System.out.println(players.get(alustab));
 
 
     }
@@ -51,6 +52,10 @@ public class Main {
             System.out.println("Pole sobiv vastus");
             whoBegins(players);
         }
+    }
+
+    public void turn() {
+        System.out.println();
     }
 
 }
