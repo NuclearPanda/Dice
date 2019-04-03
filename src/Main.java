@@ -6,18 +6,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         Dice a = new D10();
-        List<Player> players = createPlayers();
-        Animations.animateDice(a);
-
-        whoBegins(players);
-//        System.out.println(players.get(alustab));
-        for (Player player :
-                players) {
-            System.out.println(player);
+        run(a);
         }
-
-
-    }
 
     public static List<Player> createPlayers() {
         List<Player> players = new ArrayList<>();
@@ -41,8 +31,52 @@ public class Main {
         System.out.println("Alustab " + players.get(0).getName() + ".");
     }
 
-    public void turn() {
-        System.out.println("");
+    private static void run(Dice dice) throws InterruptedException { // Tehtud paarisprogrammerimisega
+        List<Player> players = Main.createPlayers();
+        Main.whoBegins(players);
+        Scanner input = new Scanner(System.in);
+        Player winner = players.get(0);
+        boolean running = true;
+        boolean rolled1;
+        int index = 0;
+        while (running) {
+            System.out.println("\nNüüd on " + players.get(index).getName() + " kord.");
+            rolled1 = false;
+            System.out.print("Mitu korda tahad veeretada: ");
+            int mituKorda = input.nextInt();
+            if (mituKorda == 0) {
+                if (index >= players.size() - 1) {
+                    index = 0;
+                } else index++;
+                continue;
+            }
+            System.out.print("\n");
+            for (int i = 0; i < mituKorda; i++) {
+                int roll = Animations.animateDice(dice);
+                if (roll == 1) {
+                    rolled1 = true;
+                    players.get(index).resetScore();
+                    break;
+                } else {
+                    players.get(index).addToScore(roll);
+                    if (players.get(index).getScore() >= 91){
+                        running = false;
+                        winner = players.get(index);
+                        break;
+                    }
+                }
+
+            }
+            if (rolled1) {
+                if (index >= players.size() - 1) {
+                    index = 0;
+                } else {
+                    index++;
+                    System.out.println("-------------------------------------");
+                }
+            }
+        }
+        System.out.println("Võitja on " + winner.getName() + " skooriga " + winner.getScore() + "!!!");
     }
 
 }

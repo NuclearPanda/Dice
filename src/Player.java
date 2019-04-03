@@ -8,14 +8,6 @@ public class Player {
         return name;
     }
 
-    public int getQueue() {
-        return queue;
-    }
-
-    public void setQueue(int queue) {
-        this.queue = queue;
-    }
-
     public int getScore() {
         return score;
     }
@@ -33,6 +25,7 @@ public class Player {
     }
 
     public void resetScore() {
+        //TODO soutida skoor
         score = 0;
     }
 
