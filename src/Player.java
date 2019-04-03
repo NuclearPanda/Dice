@@ -2,7 +2,6 @@ public class Player {
 
     private String name;
     private int score;
-    private int queue;
 
     public String getName() {
         return name;
@@ -12,10 +11,9 @@ public class Player {
         return score;
     }
 
-    public Player(String name, int score, int queue) {
+    public Player(String name, int score) {
         this.name = name;
         this.score = score;
-        this.queue = queue;
     }
 
 
@@ -34,7 +32,6 @@ public class Player {
         return "Player{" +
                 "name='" + name + '\'' +
                 ", score=" + score +
-                ", queue=" + queue +
                 '}';
     }
 
