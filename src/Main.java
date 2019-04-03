@@ -3,11 +3,34 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
+/*Täringumäng
+*
+* Meie projekt on lihtne täringumäng.
+* 1. Alguses küsime, et mitu mängijat võtab mängust osa.
+* 2. Luuakse mängijate objektid
+* 3. Valitakse välja, kes alustab shuffle abil
+* 4. Alustav mängija sisestab mitu korda ta soovib täringut veeretada
+*
+* */
+
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        Dice a = new D10();
-        run(a);
+        run(chooseDice());
         }
+
+
+
+    public static Dice chooseDice() {
+        System.out.print("Vali mitmetahulist täringut kasutada. (6, 8 või 10): ");
+        Scanner info = new Scanner(System.in);
+        int answer = info.nextInt();
+        switch (answer) {
+            case 6: return new D6();
+            case 8: return new D8();
+            case 10: return new D10();
+            default: return chooseDice();
+        }
+    }
 
     public static List<Player> createPlayers() {
         List<Player> players = new ArrayList<>();
@@ -40,7 +63,8 @@ public class Main {
         boolean rolled1;
         int index = 0;
         while (running) {
-            System.out.println("\nNüüd on " + players.get(index).getName() + " kord.");
+            System.out.println("\nNüüd on " + players.get(index).getName() + " kord. Sinu skoor on "
+                    + players.get(index).getScore() + ".");
             rolled1 = false;
             System.out.print("Mitu korda tahad veeretada: ");
             int mituKorda = input.nextInt();

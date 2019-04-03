@@ -9,5 +9,4 @@ public abstract class Dice {
         Random generaator = new Random();
         return generaator.nextInt((max - min) + 1) + min;
     }
-
 }

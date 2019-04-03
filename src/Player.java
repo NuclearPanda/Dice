@@ -25,8 +25,8 @@ public class Player {
     }
 
     public void resetScore() {
-        //TODO soutida skoor
         score = 0;
+        System.out.println("Veeretasid 1, sinu skoor on jälle 0");
     }
 
     @Override
