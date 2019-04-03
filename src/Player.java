@@ -1,6 +1,4 @@
-import java.util.Comparator;
-
-public class Player implements Comparable {
+public class Player {
 
     private String name;
     private int score;
@@ -8,10 +6,6 @@ public class Player implements Comparable {
 
     public String getName() {
         return name;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
     }
 
     public int getQueue() {
@@ -38,7 +32,7 @@ public class Player implements Comparable {
         System.out.println("Sinu skoor on " + score);
     }
 
-    public void restartScore() {
+    public void resetScore() {
         score = 0;
     }
 
@@ -50,14 +44,5 @@ public class Player implements Comparable {
                 ", queue=" + queue +
                 '}';
     }
-
-    public int compareTo(Object a) {
-        int compareQueue = ((Player)a).getQueue();
-        return this.queue-compareQueue;
-    }
-
-//    public int veeretus() {
-//
-//    }
 
 }

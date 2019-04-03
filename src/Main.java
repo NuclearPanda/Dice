@@ -10,7 +10,6 @@ public class Main {
         Animations.animateDice(a);
 
         whoBegins(players);
-        Collections.sort(players);
 //        System.out.println(players.get(alustab));
         for (Player player :
                 players) {
@@ -20,7 +19,6 @@ public class Main {
 
     }
 
-    //TODO Meetod add players?
     public static List<Player> createPlayers() {
         List<Player> players = new ArrayList<>();
         Scanner info = new Scanner(System.in);
@@ -36,39 +34,11 @@ public class Main {
     }
 
     public static void whoBegins(List<Player> players) {
-        if (players.size()==0){
+        if (players.size() == 0) {
             return;
         }
-        int playerCount = players.size();
-        int randIndex = Dice.randIntWithRange(0, playerCount - 1);
-        String name = players.get(randIndex).getName();
-        System.out.println(name + " alustab mängu");
-        for (int i = 0; i < players.size(); i++) {
-            if (i != randIndex) {
-              players.get(i).setQueue(i+1);
-            }
-        }
-
-
-//        System.out.print("Kas soovid ise alustada? Vasta Jah või Ei: ");
-//        Scanner info = new Scanner(System.in);
-//
-
-
-
-//        String answer = info.nextLine();
-//        System.out.print("\n");
-//        if (answer.toLowerCase().equals("jah")) {
-//            System.out.println(name + " alustab mängu!");
-//        } else if (answer.toLowerCase().equals("ei")) {
-//            System.out.println("Sisesta mängija nimi kes võiks alustada!");
-//            String vastus =info.next();
-//            System.out.println(name + " alustab mängu!");
-//            //TODO Vb võtta välja see kes ütles ei
-//        } else {
-//            System.out.println("Pole sobiv vastus");
-//            whoBegins(players);
-//        }
+        Collections.shuffle(players);
+        System.out.println("Alustab " + players.get(0).getName() + ".");
     }
 
     public void turn() {
