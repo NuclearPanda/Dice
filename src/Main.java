@@ -6,15 +6,23 @@ import java.util.Scanner;
 /*Täringumäng
 *
 * Meie projekt on lihtne täringumäng.
-* 1. Alguses küsime, et mitu mängijat võtab mängust osa.
+* 1. Alguses küsime, et mis täringut kasutada ja mitu mängijat võtab mängust osa.
 * 2. Luuakse mängijate objektid
 * 3. Valitakse välja, kes alustab shuffle abil
-* 4. Alustav mängija sisestab mitu korda ta soovib täringut veeretada
+* 4. Edasine töö toimub meetodis run
+* 5. meetod runis küsitakse mängijalt mitu korda ta soovib täringut veeretada. Iga veeretamiskorraga
+*    saab ta klass Dice abil juhusliku numbri, mis liidetakse tema skoorile, kui see number on 1, siis
+*    meetod resetScore abil nullitakse mängija skoor. Kui summa ületab 91, siis on mängija võitnud.
+*    Täringul on ka animatsioon.
 *
 * */
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
+
+        System.out.println("Täringumäng: created by Jaanus and Johan" +
+                "\n ");
+
         run(chooseDice());
         }
 
